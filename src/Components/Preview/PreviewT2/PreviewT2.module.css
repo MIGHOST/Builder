@@ -6,6 +6,27 @@
   background-color: #fff;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.02), 1px 1px 4px rgba(0, 0, 0, 0.06),
     1px 4px 4px rgba(0, 0, 0, 0.08);
+  height: calc(100vh - 290px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.previewT2::-webkit-scrollbar {
+  width: 10px;
+}
+
+.previewT2::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.previewT2::-webkit-scrollbar-thumb {
+  background: rgb(105, 100, 100);
+  border-radius: 10px;
+}
+
+.previewT2::-webkit-scrollbar-thumb:hover {
+  background: #7c7777;
 }
 
 .name {
