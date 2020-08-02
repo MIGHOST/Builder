@@ -94,9 +94,11 @@ const PreviewT1 = () => {
                     <p className={styles.listItemContent}>{job.city}</p>
 
                     <p className={styles.jobPeriod}>
-                      {`${moment(job.start).format("MMM YYYY")} - ${moment(
-                        job.end
-                      ).format("MMM YYYY")}`}
+                      {job.start || job.end
+                        ? `${moment(job.start).format("MMM YYYY")} - ${moment(
+                            job.end
+                          ).format("MMM YYYY")}`
+                        : ""}
                     </p>
                     <p className={styles.cvInfoData}>{job.description}</p>
                   </li>
@@ -128,11 +130,13 @@ const PreviewT1 = () => {
                     <h4 className={styles.listItemTitle}>
                       {`${edu.school}, ${edu.degree}`}
                     </h4>
-                    <p className={styles.jobPeriod}>{`${moment(
-                      edu.start
-                    ).format("MMM YYYY")} - ${moment(edu.end).format(
-                      "MMM YYYY"
-                    )}`}</p>
+                    <p className={styles.jobPeriod}>
+                      {edu.start || edu.end
+                        ? `${moment(edu.start).format("MMM YYYY")} - ${moment(
+                            edu.end
+                          ).format("MMM YYYY")}`
+                        : ""}
+                    </p>
                   </li>
                 ))}
               </ul>
