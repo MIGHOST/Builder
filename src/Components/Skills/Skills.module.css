@@ -13,6 +13,10 @@
   line-height: 20px;
 }
 
+.Skill__title_Dark {
+  color: #ffffff;
+}
+
 .Skill__list {
   list-style: none;
 }

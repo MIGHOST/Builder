@@ -5,9 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteSkill, updateSkill } from "../../redux/actions/skills";
 
 const SkillItem = ({ skill, toggle, open, index }) => {
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
-  const changeSkill = event => {
+  const changeSkill = (event) => {
     dispatch(updateSkill(index, { skill: event.target.value }));
   };
 
@@ -17,24 +18,68 @@ const SkillItem = ({ skill, toggle, open, index }) => {
 
   return (
     <>
-      <div className={classes.SkillsContainer}>
+      <div
+        className={
+          theme === "dark"
+            ? `${classes.SkillsContainer} ${classes.SkillsContainerDark}`
+            : classes.SkillsContainer
+        }
+      >
         <div className={classes.Wrapper}>
-          <p className={classes.SkillItem_name}>{skill}</p>
+          <p
+            className={
+              theme === "dark"
+                ? `${classes.SkillItem__name} ${classes.SkillItem__nameDark}`
+                : classes.SkillItem__name
+            }
+          >
+            {skill}
+          </p>
           <div className={classes.SkillItem_buttons}>
             <button
-              className={`${classes.SkillItem_button} ${classes.SkillItem_edit}`}
+              className={`${
+                theme === "dark"
+                  ? `${classes.SkillItem_button} ${classes.SkillItem_button_Dark}`
+                  : classes.SkillItem_button
+              } ${
+                theme === "dark"
+                  ? `${classes.SkillItem_edit} ${classes.SkillItem_edit_Dark}`
+                  : classes.SkillItem_edit
+              }`}
               onClick={toggle}
             >
               Edit
             </button>
             <button
-              className={`${classes.SkillItem_button} ${classes.SkillItem_delete}`}
+              className={`${
+                theme === "dark"
+                  ? `${classes.SkillItem_button} ${classes.SkillItem_button_Dark}`
+                  : classes.SkillItem_button
+              } ${
+                theme === "dark"
+                  ? `${classes.SkillItem_delete} ${classes.SkillItem_delete_Dark}`
+                  : classes.SkillItem_delete
+              }`}
               onClick={deleteOneSkill}
             >
               Delete
             </button>
             <button
-              className={`${classes.SkillItem_button} ${open ? classes.SkillItem_sort : classes.SkillItem_sortDown}`}
+              className={`${
+                theme === "dark"
+                  ? `${classes.SkillItem_button} ${classes.SkillItem_button_Dark}`
+                  : classes.SkillItem_button
+              } ${
+                open
+                  ? classes.SkillItem_sort
+                  : theme === "dark"
+                  ? `${classes.SkillItem_sortDown} ${classes.SkillItem_sortDownDark}`
+                  : classes.SkillItem_sortDown
+              } ${
+                theme === "dark"
+                  ? `${classes.SkillItem_sort} ${classes.SkillItem_sortDark}`
+                  : classes.SkillItem_sortDark
+              }`}
               onClick={toggle}
             ></button>
           </div>
@@ -43,7 +88,13 @@ const SkillItem = ({ skill, toggle, open, index }) => {
 
       {open && (
         <form className={classes.SkillsInput}>
-          <div className={classes.SkillsNameContainer}>
+          <div
+            className={
+              theme === "dark"
+                ? `${classes.SkillsNameContainer} ${classes.SkillsNameContainer_Dark}`
+                : classes.SkillsNameContainer
+            }
+          >
             <input
               onChange={changeSkill}
               className={classes.Skill__name}
