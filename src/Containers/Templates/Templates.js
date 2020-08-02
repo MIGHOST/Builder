@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import styles from "./Templates.module.css";
+import { paths } from "../../constants";
 import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelect } from "react-redux";
 import { changeType } from "../../redux/actions/basicInfo";
@@ -16,6 +17,11 @@ const Templates = () => {
     <Fragment>
       <div className={styles.LinkWrapper}>
         <NavLink
+          to={paths.editor}
+          className={styles.LinkNewResume}
+          onClick={() => changeNumber(1)}
+        />
+        <NavLink
           to={`${path}`}
           className={styles.Link}
           activeClassName={styles.ActiveLink}
@@ -23,6 +29,11 @@ const Templates = () => {
         >
           Resume v.1
         </NavLink>
+        <NavLink
+          to={paths.editor}
+          className={styles.LinkNewResume}
+          onClick={() => changeNumber(2)}
+        />
         <NavLink
           to={`${path}/2`}
           className={styles.Link}

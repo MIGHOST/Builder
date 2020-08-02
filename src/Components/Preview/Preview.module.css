@@ -33,6 +33,10 @@
   letter-spacing: 0.04em;
   color: #181c27;
   padding-top: 9px;
+  padding-left: 25px;
+  background-image: url('/icons/SelectTemplates.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 
 .saveBtn {

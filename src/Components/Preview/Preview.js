@@ -1,4 +1,6 @@
 import React from "react";
+import { paths } from "../../constants";
+import { NavLink } from "react-router-dom";
 import styles from "./Preview.module.css";
 import PreviewT1 from "./PreviewT1/PreviewT1";
 import PreviewT2 from "./PreviewT2/PreviewT2";
@@ -16,7 +18,7 @@ const Preview = () => {
       {type === 1 ? <PreviewT1 /> : <PreviewT2 />}
 
       <div className={styles.saveWrapper}>
-        <p className={styles.select}>Select Template</p>
+        <NavLink to={paths.templates} className={styles.select}>Select Template</NavLink>
         <button className={styles.saveBtn}>Save</button>
       </div>
     </div>
