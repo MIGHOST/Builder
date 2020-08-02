@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import { connect, useDispatch } from "react-redux";
 import { setEducation } from "../../redux/actions/educations";
+import "react-datepicker/dist/react-datepicker.css";
 
 const EducationItem = ({
   school,
@@ -97,16 +98,16 @@ const EducationItem = ({
         <div className={style.degreeDates}>
           <p className={style.degreeText}>Start</p>
           <p className={style.Date}>
-            {start ? `${moment(start).format("l")}` : "mm/yy"}
+            {start ? `${moment(start).format("MM/yy")}` : "mm/yy"}
           </p>
           <p className={style.degreeText}>End</p>
           <p className={style.Date}>
-            {end ? `${moment(end).format("l")}` : "mm/yy"}
+            {end ? `${moment(end).format("MM/yy")}` : "mm/yy"}
           </p>
         </div>
       </div>
 
-      {open && (
+      {!open && (
         <div className={style.fillIn}>
           <input
             type="text"
@@ -132,6 +133,8 @@ const EducationItem = ({
               selected={start}
               // onChange={handleChangeStart}
               className={style.inputDate}
+              dateFormat="MM/yyyy"
+              showMonthYearPicker
               name="start"
               onChange={handleStart}
             />
@@ -139,6 +142,8 @@ const EducationItem = ({
               selected={end}
               // onChange={handleChangeEnd}
               className={style.inputDate}
+              dateFormat="MM/yyyy"
+              showMonthYearPicker
               name="end"
               onChange={handleEnd}
             />

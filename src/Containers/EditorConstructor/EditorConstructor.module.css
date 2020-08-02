@@ -3,4 +3,7 @@
   max-width: 1280px;
   margin: 0 auto;
   min-width: 500px;
+  height: 100vh;
+  overflow: auto;
+  -webkit-scrollbar: none;
 }

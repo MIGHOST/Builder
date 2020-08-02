@@ -1,6 +1,6 @@
 .wraper {
   display: block;
-  width: 600;
+  margin-bottom: 30px;
 }
 
 .title {
@@ -56,7 +56,8 @@
 }
 
 .degreeEditsHover:hover {
-  color: rgba(24, 28, 39, 0.9);
+  /* color: rgba(24, 28, 39, 0.9); */
+  cursor: pointer;
 }
 
 .degreeEditIcon {
@@ -127,6 +128,11 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08),
     0px 1px 2px rgba(0, 0, 0, 0.12);
   padding-left: 8px;
+  font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
 }
 
 .fillInDate {
@@ -138,13 +144,19 @@
 
 .inputDate {
   padding: 0;
-  margin-top: 16px;
+  margin-top: 0px;
   height: 40px;
   width: 100px;
   border: none;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08),
     0px 1px 2px rgba(0, 0, 0, 0.12);
   padding-left: 8px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(24, 28, 39, 0.6);
 }
 .itemsWrapper {
   margin-bottom: 16px;
