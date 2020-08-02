@@ -20,7 +20,7 @@ const Document2 = ({ resume }) => {
               {basicInfo.firstName} {basicInfo.lastName}
             </Text>
             <Text style={styles.subtitle}>{basicInfo.jobTitle}</Text>
-            <View style={styles.infoUser}>
+            <View style={styles.userBox}>
               <Text style={styles.textInfo}>
                 {basicInfo.city}, {basicInfo.country}
               </Text>
@@ -56,16 +56,16 @@ const Document2 = ({ resume }) => {
                 {educations.start}-{educations.end}
               </Text>
             </View>
-          </View>
-          <View style={styles.skillsSection}>
-            <Text style={styles.sectionTitle}>Skills</Text>
+            <View style={styles.skillsSection}>
+              <Text style={styles.sectionTitle}>Skills</Text>
 
-            <View>
-              {skills.map((el) => (
-                <Text style={styles.skillsInfo} key={el.skill}>
-                  {el.skill}
-                </Text>
-              ))}
+              <View>
+                {skills.map((el) => (
+                  <Text style={styles.skillsInfo} key={el.skill}>
+                    {el.skill}
+                  </Text>
+                ))}
+              </View>
             </View>
           </View>
         </View>
@@ -109,21 +109,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  title: {
-    maxWidth: 319,
-    // fontFamily: "Roboto",
-    // fontStyle: "normal",
-    // fontWeight: 500,
-    fontSize: 36,
-    lineHeight: 42,
-    display: "flex",
-    alignItems: "center",
-    textAlign: "center",
-    letterSpacing: "0.04em",
-    textTransform: "uppercase",
+  // title: {
+  //   maxWidth: 319,
+  //   fontFamily: "Roboto",
+  //   fontStyle: "normal",
+  //   fontWeight: 500,
+  //   fontSize: 36,
+  //   lineHeight: 42,
+  //   display: "flex",
+  //   alignItems: "center",
+  //   textAlign: "center",
+  //   letterSpacing: "0.04em",
+  //   textTransform: "uppercase",
 
-    color: "#181c27",
-  },
+  //   color: "#181c27",
+  // },
 
   // subtitle: {
   //   paddingTop: "16",
@@ -142,12 +142,13 @@ const styles = StyleSheet.create({
   //   color: "rgba(24, 28, 39, 0.6)",
   // },
 
-  // infoUser: {
-  //   width: "100%",
-  //   paddingTop: "24",
-  //   display: "flex",
-  //   justifyContent: "space-around",
-  // },
+  userBox: {
+    width: "100%",
+    paddingTop: "24",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
 
   // titleText: {
   //   // fontFamily: "Roboto",
@@ -177,40 +178,44 @@ const styles = StyleSheet.create({
   //   textDecoration: "underline",
   // },
 
-  // section: {
-  //   display: "flex",
-  //   flexDirection: "row",
-  // },
+  section: {
+    paddingTop: 61,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 
-  // profileSection: { display: "flex", flexDirection: "row" },
+  profileSection: { width: "70%" },
+  skillsSection: { width: "30%" },
 
-  // sectionTitle: {
-  //   marginBottom: 32,
-  //   padding: "4, 16",
-  //   // fontFamily: "Roboto",
-  //   fontStyle: "normal",
-  //   fontWeight: "500",
-  //   fontSize: 18,
-  //   lineHeight: 21,
-  //   display: "inline-block",
-  //   alignItems: "center",
-  //   letterSpacing: "0.04em",
-  //   textTransform: "uppercase",
-  //   color: "#ffffff",
-  //   backgroundColor: "rgb(78, 79, 80)",
-  // },
+  sectionTitle: {
+    width: 94,
+    // marginBottom: 32,
+    // padding: "4, 16",
+    // fontFamily: "Roboto",
+    // fontStyle: "normal",
+    // fontWeight: "500",
+    // fontSize: 18,
+    // lineHeight: 21,
+    display: "inline-block",
+    // alignItems: "center",
+    // letterSpacing: "0.04em",
+    // textTransform: "uppercase",
+    // color: "white",
+    // backgroundColor: "rgb(78, 79, 80)",
+  },
 
-  // sectionSubtitle: {
-  //   paddingTop: 4,
-  //   paddingBottom: 8,
-  //   // fontFamily: "Roboto",
-  //   fontStyle: "normal",
-  //   fontWeight: "normal",
-  //   fontSize: 14,
-  //   lineHeight: 24,
-  //   letterSpacing: "0.02em",
-  //   color: "#181c27",
-  // },
+  sectionSubtitle: {
+    paddingTop: 4,
+    paddingBottom: 8,
+    // fontFamily: "Roboto",
+    // fontStyle: "normal",
+    // fontWeight: "normal",
+    // fontSize: 14,
+    // lineHeight: 24,
+    letterSpacing: "0.02em",
+    color: "#181c27",
+  },
 
   // profileText: {
   //   fontSize: 14,
@@ -218,9 +223,6 @@ const styles = StyleSheet.create({
   //   color: "grey",
   //   paddingBottom: 40,
   //   marginBottom: 40,
-  //   borderColor: "#d3d3d3",
-  //   borderBottomWidth: 1,
-  //   borderBottomStyle: "solid",
   // },
 
   // profileData: {
@@ -229,17 +231,15 @@ const styles = StyleSheet.create({
   //   marginBottom: 16,
   // },
 
-  // skillsSection: { paddingTop: 40, paddingLeft: 30 },
-
-  // pageNumber: {
-  //   position: "absolute",
-  //   fontSize: 12,
-  //   bottom: 30,
-  //   left: 0,
-  //   right: 0,
-  //   textAlign: "center",
-  //   color: "grey",
-  // },
+  pageNumber: {
+    position: "absolute",
+    fontSize: 12,
+    bottom: 30,
+    left: 0,
+    right: 0,
+    textAlign: "center",
+    color: "grey",
+  },
 });
 
 export default Document2;
