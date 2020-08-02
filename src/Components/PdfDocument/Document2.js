@@ -1,5 +1,6 @@
 import React from "react";
 import Fonts from "./fonts/Roboto-Regular.ttf";
+import moment from "moment";
 
 import {
   Page,
@@ -38,32 +39,38 @@ const Document2 = ({ resume }) => {
               <View style={styles.employmentBox}>
                 <Text style={styles.sectionTitle}>employment history</Text>
               </View>
+              <View>
+                {employmentHistory.map((el) => (
+                  <View key={el.employer}>
+                    <Text style={styles.sectionSubtitle}>
+                      {" "}
+                      {el.jobTitle}, {el.employer}, {el.city}
+                    </Text>
 
-              <Text style={styles.sectionSubtitle}>
-                {employmentHistory[0].jobTitle} {employmentHistory[0].city}
-              </Text>
-              <Text style={styles.profileData}>
-                {employmentHistory[0].start}-{employmentHistory[0].end}
-              </Text>
-              <Text style={styles.profileText}>
-                {employmentHistory.description}
-              </Text>
+                    <Text style={styles.profileData}>
+                      {el.start ? moment(el.start).format("MMM YYYY") : ""} -{" "}
+                      {el.end ? moment(el.end).format("MMM YYYY") : ""}
+                    </Text>
+
+                    <Text style={styles.profileText}>{el.description}</Text>
+                  </View>
+                ))}
+              </View>
+
               <View style={styles.educationsBox}>
                 <Text style={styles.sectionTitle}>Education</Text>
               </View>
-
-              <Text style={styles.sectionSubtitle}>
-                {educations[0].school} {educations[0].degree}
-              </Text>
-              <Text style={styles.profileData}>
-                {educations[0].start}-{educations[0].end}
-              </Text>
-              <Text style={styles.sectionSubtitle}>
-                {educations[0].school} {educations[0].degree}
-              </Text>
-              <Text style={styles.profileData}>
-                {educations[0].start}-{educations[0].end}
-              </Text>
+              <View>
+                {educations.map((el) => (
+                  <View key={el.school}>
+                    <Text style={styles.sectionSubtitle}>{el.school}</Text>
+                    <Text style={styles.profileData}>
+                      {el.start ? moment(el.start).format("MMM YYYY") : ""} -{" "}
+                      {el.end ? moment(el.end).format("MMM YYYY") : ""}
+                    </Text>
+                  </View>
+                ))}
+              </View>
             </View>
             <View style={styles.skillsSection}>
               <View style={styles.skillsBox}>
@@ -182,28 +189,28 @@ const styles = StyleSheet.create({
   skillsSection: { width: "30%" },
 
   profileBox: {
-    backgroundColor: "rgb(78, 79, 80)",
+    backgroundColor: "rgba(24, 28, 39, 0.6)",
     maxWidth: 107,
     display: "inline-block",
     marginBottom: 32,
   },
 
   employmentBox: {
-    backgroundColor: "rgb(78, 79, 80)",
+    backgroundColor: "rgba(24, 28, 39, 0.6)",
     maxWidth: 241,
     display: "inline-block",
     marginBottom: 32,
   },
 
   educationsBox: {
-    backgroundColor: "rgb(78, 79, 80)",
+    backgroundColor: "rgba(24, 28, 39, 0.6)",
     maxWidth: 136,
     display: "inline-block",
     marginBottom: 32,
   },
 
   skillsBox: {
-    backgroundColor: "rgb(78, 79, 80)",
+    backgroundColor: "rgba(24, 28, 39, 0.6)",
     maxWidth: 94,
     display: "inline-block",
     marginBottom: 32,
