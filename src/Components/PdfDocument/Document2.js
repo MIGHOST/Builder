@@ -1,4 +1,5 @@
 import React from "react";
+import Fonts from "./fonts/Roboto-Regular.ttf";
 
 import {
   Page,
@@ -82,8 +83,9 @@ const Document2 = ({ resume }) => {
 };
 
 Font.register({
-  family: "Oswald",
-  src: "https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf",
+  family: "Roboto",
+  format: "truetype",
+  src: Fonts,
 
   // family: "Montserrat",
   // src: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
@@ -91,8 +93,7 @@ Font.register({
 
 const styles = StyleSheet.create({
   body: {
-    // fontFamily: "Montserrat",
-    fontFamily: "Oswald",
+    fontFamily: "Roboto",
     paddingVertical: 65,
     paddingHorizontal: 35,
   },
@@ -109,21 +110,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  // title: {
-  //   maxWidth: 319,
-  //   fontFamily: "Roboto",
-  //   fontStyle: "normal",
-  //   fontWeight: 500,
-  //   fontSize: 36,
-  //   lineHeight: 42,
-  //   display: "flex",
-  //   alignItems: "center",
-  //   textAlign: "center",
-  //   letterSpacing: "0.04em",
-  //   textTransform: "uppercase",
+  title: {
+    maxWidth: 319,
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: 36,
+    lineHeight: 42,
+    alignItems: "center",
+    textAlign: "center",
+    letterSpacing: "0.04em",
+    textTransform: "uppercase",
 
-  //   color: "#181c27",
-  // },
+    color: "#181c27",
+  },
 
   // subtitle: {
   //   paddingTop: "16",
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
 
   // profileText: {
   //   fontSize: 14,
-  //   fontFamily: "Oswald",
+  //   fontFamily: "Roboto",
   //   color: "grey",
   //   paddingBottom: 40,
   //   marginBottom: 40,
