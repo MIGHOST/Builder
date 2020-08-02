@@ -31,34 +31,44 @@ const Document2 = ({ resume }) => {
           </View>
           <View style={styles.section}>
             <View style={styles.profileSection}>
-              <Text style={styles.sectionTitle}>Profile</Text>
+              <View style={styles.profileBox}>
+                <Text style={styles.sectionTitle}>Profile</Text>
+              </View>
               <Text style={styles.profileText}>{basicInfo.summary}</Text>
-              <Text style={styles.sectionTitle}>employment history</Text>
-              <Text style={styles.profileSubtitle}>
-                {employmentHistory.jobTitle} {employmentHistory.city}
+              <View style={styles.employmentBox}>
+                <Text style={styles.sectionTitle}>employment history</Text>
+              </View>
+
+              <Text style={styles.sectionSubtitle}>
+                {employmentHistory[0].jobTitle} {employmentHistory[0].city}
               </Text>
               <Text style={styles.profileData}>
-                {employmentHistory.start}-{employmentHistory.end}
+                {employmentHistory[0].start}-{employmentHistory[0].end}
               </Text>
               <Text style={styles.profileText}>
                 {employmentHistory.description}
               </Text>
-              <Text style={styles.sectionTitle}>Education</Text>
-              <Text style={styles.profileSubtitle}>
-                {educations.school} {educations.degree}
+              <View style={styles.educationsBox}>
+                <Text style={styles.sectionTitle}>Education</Text>
+              </View>
+
+              <Text style={styles.sectionSubtitle}>
+                {educations[0].school} {educations[0].degree}
               </Text>
               <Text style={styles.profileData}>
-                {educations.start}-{educations.end}
+                {educations[0].start}-{educations[0].end}
               </Text>
-              <Text style={styles.profileSubtitle}>
-                {educations.school} {educations.degree}
+              <Text style={styles.sectionSubtitle}>
+                {educations[0].school} {educations[0].degree}
               </Text>
               <Text style={styles.profileData}>
-                {educations.start}-{educations.end}
+                {educations[0].start}-{educations[0].end}
               </Text>
             </View>
             <View style={styles.skillsSection}>
-              <Text style={styles.sectionTitle}>Skills</Text>
+              <View style={styles.skillsBox}>
+                <Text style={styles.sectionTitle}>Skills</Text>
+              </View>
 
               <View>
                 {skills.map((el) => (
@@ -111,36 +121,25 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    maxWidth: 319,
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: 500,
     fontSize: 36,
-    lineHeight: 42,
     alignItems: "center",
-    textAlign: "center",
-    letterSpacing: "0.04em",
+    letterSpacing: 4,
     textTransform: "uppercase",
-
     color: "#181c27",
   },
 
-  // subtitle: {
-  //   paddingTop: "16",
-
-  //   // fontFamily: "Roboto",
-  //   fontStyle: "normal",
-  //   fontWeight: "normal",
-  //   fontSize: 14,
-  //   lineHeight: 16,
-  //   display: "flex",
-  //   alignItems: "center",
-  //   textAlign: "center",
-  //   letterSpacing: "0.1em",
-  //   textTransform: "uppercase",
-
-  //   color: "rgba(24, 28, 39, 0.6)",
-  // },
+  subtitle: {
+    paddingTop: "16",
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontSize: 14,
+    alignItems: "center",
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    color: "rgba(24, 28, 39, 0.6)",
+  },
 
   userBox: {
     width: "100%",
@@ -150,33 +149,27 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
 
-  // titleText: {
-  //   // fontFamily: "Roboto",
-  //   fontStyle: "normal",
-  //   fontWeight: "normal",
-  //   fontSize: 14,
-  //   lineHeight: 16,
-  //   display: "flex",
-  //   alignItems: "center",
-  //   textAlign: "center",
-  //   letterSpacing: "0.1em",
+  titleText: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontSize: 12,
+    letterSpacing: 1,
+    color: "rgba(24, 28, 39, 0.6)",
+  },
 
-  //   color: "rgba(24, 28, 39, 0.6)",
-  // },
+  textInfo: {
+    fontSize: 12,
+    letterSpacing: 1,
+    fontStyle: "normal",
+    color: "rgba(24, 28, 39, 0.6)",
+  },
 
-  // textInfo: {
-  //   fontSize: 14,
-  //   letterSpacing: "0.1em",
-  //   fontStyle: "normal",
-  //   color: "rgba(24, 28, 39, 0.6)",
-  // },
-
-  // emailInfo: {
-  //   fontSize: 14,
-  //   color: "rgba(24, 28, 39, 0.6);",
-  //   marginBottom: 40,
-  //   textDecoration: "underline",
-  // },
+  emailInfo: {
+    fontSize: 14,
+    letterSpacing: 1,
+    color: "rgba(24, 28, 39, 0.6);",
+    textDecoration: "underline",
+  },
 
   section: {
     paddingTop: 61,
@@ -188,48 +181,74 @@ const styles = StyleSheet.create({
   profileSection: { width: "70%" },
   skillsSection: { width: "30%" },
 
-  sectionTitle: {
-    width: 94,
-    // marginBottom: 32,
-    // padding: "4, 16",
-    // fontFamily: "Roboto",
-    // fontStyle: "normal",
-    // fontWeight: "500",
-    // fontSize: 18,
-    // lineHeight: 21,
+  profileBox: {
+    backgroundColor: "rgb(78, 79, 80)",
+    maxWidth: 107,
     display: "inline-block",
-    // alignItems: "center",
-    // letterSpacing: "0.04em",
-    // textTransform: "uppercase",
-    // color: "white",
-    // backgroundColor: "rgb(78, 79, 80)",
+    marginBottom: 32,
+  },
+
+  employmentBox: {
+    backgroundColor: "rgb(78, 79, 80)",
+    maxWidth: 241,
+    display: "inline-block",
+    marginBottom: 32,
+  },
+
+  educationsBox: {
+    backgroundColor: "rgb(78, 79, 80)",
+    maxWidth: 136,
+    display: "inline-block",
+    marginBottom: 32,
+  },
+
+  skillsBox: {
+    backgroundColor: "rgb(78, 79, 80)",
+    maxWidth: 94,
+    display: "inline-block",
+    marginBottom: 32,
+  },
+
+  sectionTitle: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontSize: 18,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    color: "white",
+    alignSelf: "center",
   },
 
   sectionSubtitle: {
-    paddingTop: 4,
-    paddingBottom: 8,
-    // fontFamily: "Roboto",
-    // fontStyle: "normal",
-    // fontWeight: "normal",
-    // fontSize: 14,
-    // lineHeight: 24,
-    letterSpacing: "0.02em",
+    paddingBottom: 4,
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontSize: 14,
+    letterSpacing: 2,
     color: "#181c27",
   },
 
-  // profileText: {
-  //   fontSize: 14,
-  //   fontFamily: "Roboto",
-  //   color: "grey",
-  //   paddingBottom: 40,
-  //   marginBottom: 40,
-  // },
+  profileText: {
+    fontSize: 14,
+    fontFamily: "Roboto",
+    color: "rgba(24, 28, 39, 0.6)",
+    marginBottom: 40,
+    letterSpacing: 1,
+  },
 
-  // profileData: {
-  //   fontSize: 14,
-  //   color: "black",
-  //   marginBottom: 16,
-  // },
+  profileData: {
+    fontSize: 14,
+    color: "#181C27",
+    marginBottom: 16,
+    letterSpacing: 1,
+  },
+
+  skillsInfo: {
+    fontSize: 14,
+    color: "#rgba(24, 28, 39, 0.6)",
+    letterSpacing: 1,
+    textTransform: "uppercase",
+  },
 
   pageNumber: {
     position: "absolute",
