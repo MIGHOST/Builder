@@ -16,7 +16,7 @@ const DashboardItemV2 = (props) => {
           fileName="resume.pdf"
         >
           <button className={styles.button}>
-            <img src="/icons/Dowload.svg" className={styles.buttonSvg} />{" "}
+            <img src="/icons/Dowload.svg" className={styles.buttonSvg} />
             Download
           </button>
         </PDFDownloadLink>
