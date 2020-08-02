@@ -8,8 +8,13 @@ import Editor from "./Containers/Editor/Editor";
 import Templates from "./Containers/Templates/Templates";
 import Header from "./Components/Header/Header";
 import "./App.css";
+import { PDFViewer } from "@react-pdf/renderer";
+import Document2 from "./Components/PdfDocument/Document2";
+import { useSelector } from "react-redux";
 
 function App() {
+  const resume = useSelector((state) => state.resume);
+
   return (
     <div className="App">
       <Header />
@@ -20,6 +25,10 @@ function App() {
         <Route path={paths.editor} component={Editor} />
         <Route path={paths.templates} component={Templates} />
       </Switch>
+
+      <PDFViewer width="1300" height="1300">
+        <Document2 resume={resume} />
+      </PDFViewer>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import skills from "./skills";
 import languages from "./languages";
 import projects from "./projects";
 import educations from "./educations";
+
 const resume = combineReducers({
   basicInfo,
   employmentHistory,
