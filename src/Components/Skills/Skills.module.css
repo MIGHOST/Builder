@@ -12,6 +12,10 @@
   font-size: 16px;
   line-height: 20px;
 }
+.Skill__title_dark {
+  composes: Skill__title;
+  color: #ffffff;
+}
 
 .Skill__list {
   list-style: none;

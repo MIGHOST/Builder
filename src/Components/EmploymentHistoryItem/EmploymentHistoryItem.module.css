@@ -64,43 +64,43 @@
 
 .EmploymentHistoryItem_Editor_Edit_Btn {
   margin-right: 24px;
-  background-image: url("/icons/employment_edit_icon.svg");
+  background-image: url("/icons/edit_icon.svg");
   background-size: contain;
 }
 .EmploymentHistoryItem_Editor_Edit_Btn_Dark {
-  background-image: url("./edit-dark.svg");
+  background-image: url("/icons/edit-dark.svg");
 }
 
 .EmploymentHistoryItem_Editor_Delete_Btn {
   margin-right: 24px;
-  background-image: url("/icons/employment_delete_icon.svg");
+  background-image: url("/icons/delete_icon.svg");
   background-size: contain;
 }
 .EmploymentHistoryItem_Editor_Delete_Btn_Dark {
-  background-image: url("./delete-dark.svg");
+  background-image: url("/icons/delete_dark.svg");
 }
 
 .EmploymentHistoryItem_Editor_Toggle_Btn {
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 95%;
 }
 .EmploymentHistoryItem_Editor_Toggle_Btn_Dark {
   composes: EmploymentHistoryItem_Editor_Toggle_Btn;
-  background-image: url("./open.svg");
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .EmploymentHistoryItem_Editor_Toggle_Btn_Rotate {
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 15%;
   transform: rotate(180deg);
 }
 .EmploymentHistoryItem_Editor_Toggle_Btn_Rotate_Dark {
   composes: EmploymentHistoryItem_Editor_Toggle_Btn_Rotate;
-  background-image: url("./open.svg");
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .EmploymentHistoryItem_Editor_Years_Box {

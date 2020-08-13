@@ -11,12 +11,20 @@
   font-size: 16px;
   line-height: 20px;
 }
+.title_dark {
+  composes: title;
+  color: #ffffff;
+}
 
 .degree {
   padding: 12px 13px 13px 8px;
   background-color: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08),
     0px 1px 2px rgba(0, 0, 0, 0.12);
+}
+.degree_dark {
+  composes: degree;
+  background-color: #181c27;
 }
 
 .degreeSchool {
@@ -32,6 +40,10 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
+}
+.schoolLabel_dark {
+  composes: schoolLabel;
+  color: #ffffff;
 }
 
 .degreeEdits {
@@ -58,33 +70,51 @@
   outline: none;
 }
 
-.degreeEditsHover:hover {
-  color: rgba(24, 28, 39, 0.9);
-}
-
 .degreeEditIcon {
+  composes: degreeEditsHover;
   margin-right: 24px;
-  background-image: url("/icons/employment_edit_icon.svg");
+  background-image: url("/icons/edit_icon.svg");
   background-size: contain;
+}
+.degreeEditIcon_dark {
+  composes: degreeEditIcon;
+  background-image: url("/icons/edit-dark.svg");
+  color: rgba(255, 255, 255, 0.6);
 }
 .degreeDeleteIcon {
+  composes: degreeEditsHover;
   margin-right: 24px;
-  background-image: url("/icons/employment_delete_icon.svg");
+  background-image: url("/icons/delete_icon.svg");
   background-size: contain;
+}
+.degreeDeleteIcon_dark {
+  composes: degreeDeleteIcon;
+  background-image: url("/icons/delete_dark.svg");
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .degreeTreeangle {
+  composes: degreeEditsHover;
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 95%;
 }
+.degreeTreeangle_dark {
+  composes: degreeTreeangle;
+  background-image: url("/icons/toggle_dark.svg");
+}
 .degreeTreeangleRotate {
+  composes: degreeEditsHover;
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 15%;
   transform: rotate(180deg);
+}
+.degreeTreeangleRotate_dark {
+  composes: degreeTreeangleRotate;
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .degreeDates {
@@ -102,9 +132,15 @@
 .degreeText {
   color: rgba(24, 28, 39, 0.6);
 }
+.degreeText_dark {
+  color: rgba(255, 255, 255, 0.6);
+}
 
 .degreeDate {
   color: #181c27;
+}
+.degreeDate_dark {
+  color: #ffffff;
 }
 
 .fillIn {
@@ -114,6 +150,10 @@
   width: 470px;
   background: rgba(24, 28, 39, 0.1);
   flex-wrap: wrap;
+}
+.fillIn_dark {
+  composes: fillIn;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .inputSpace {

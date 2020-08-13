@@ -7,6 +7,7 @@ import AddButton from "../AddButton/AddButton";
 
 const Skills = () => {
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme);
 
   const addOneSkill = () => {
     dispatch(addSkill());
@@ -15,7 +16,13 @@ const Skills = () => {
   const skillsList = useSelector(state => state.resume.skills);
   return (
     <div className={classes.Container}>
-      <h2 className={classes.Skill__title}>Skills</h2>
+      <h2
+        className={
+          theme === "dark" ? classes.Skill__title_dark : classes.Skill__title
+        }
+      >
+        Skills
+      </h2>
       <ul className={classes.Skill__list}>
         {skillsList.map((skill, index) => (
           <li className={classes.Skill__item} key={index}>

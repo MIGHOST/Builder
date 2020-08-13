@@ -3,7 +3,7 @@ import style from "./Education.module.css";
 import withToggle from "../../hoc/withToggle";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { setEducation } from "../../redux/actions/educations";
 
 const EducationItem = ({
@@ -16,6 +16,7 @@ const EducationItem = ({
   toggle,
   handleRemoveClick
 }) => {
+  const theme = useSelector(state => state.theme);
   const remove = index => {
     handleRemoveClick(index);
   };
@@ -68,16 +69,45 @@ const EducationItem = ({
 
   return (
     <div>
-      <div className={style.degree}>
+      <div className={theme === "dark" ? style.degree_dark : style.degree}>
         <div className={style.degreeSchool}>
-          <h2 className={style.schoolLabel}>{`${!!school ? school : "School"} ${
+          <h2
+            className={
+              theme === "dark" ? style.schoolLabel_dark : style.schoolLabel
+            }
+          >{`${!!school ? school : "School"} ${
             !!degree ? degree : "degree"
           }`}</h2>
           <div className={style.degreeEdits}>
-            <button onClick={toggle} className={`${style.degreeEditsHover} ${style.degreeEditIcon}`}>Edit</button>
-            <button onClick={remove} className={`${style.degreeEditsHover} ${style.degreeDeleteIcon}`}>Delete</button>
             <button
-              className={`${style.degreeEditsHover} ${!!open ? style.degreeTreeangle : style.degreeTreeangleRotate}`
+              onClick={toggle}
+              className={
+                theme === "dark"
+                  ? style.degreeEditIcon_dark
+                  : style.degreeEditIcon
+              }
+            >
+              Edit
+            </button>
+            <button
+              onClick={remove}
+              className={
+                theme === "dark"
+                  ? style.degreeDeleteIcon_dark
+                  : style.degreeDeleteIcon
+              }
+            >
+              Delete
+            </button>
+            <button
+              className={
+                theme === "dark"
+                  ? !!open
+                    ? style.degreeTreeangle_dark
+                    : style.degreeTreeangleRotate_dark
+                  : !!open
+                  ? style.degreeTreeangle
+                  : style.degreeTreeangleRotate
               }
               onClick={toggle}
             ></button>
@@ -85,19 +115,39 @@ const EducationItem = ({
         </div>
 
         <div className={style.degreeDates}>
-          <p className={style.degreeText}>Start</p>
-          <p className={style.Date}>
+          <p
+            className={
+              theme === "dark" ? style.degreeText_dark : style.degreeText
+            }
+          >
+            Start
+          </p>
+          <p
+            className={
+              theme === "dark" ? style.degreeDate_dark : style.degreeDate
+            }
+          >
             {start ? `${moment(start).format("l")}` : "mm/yy"}
           </p>
-          <p className={style.degreeText}>End</p>
-          <p className={style.Date}>
+          <p
+            className={
+              theme === "dark" ? style.degreeText_dark : style.degreeText
+            }
+          >
+            End
+          </p>
+          <p
+            className={
+              theme === "dark" ? style.degreeDate_dark : style.degreeDate
+            }
+          >
             {end ? `${moment(end).format("l")}` : "mm/yy"}
           </p>
         </div>
       </div>
 
       {open && (
-        <div className={style.fillIn}>
+        <div className={theme === "dark" ? style.fillIn_dark : style.fillIn}>
           <input
             type="text"
             placeholder="School"

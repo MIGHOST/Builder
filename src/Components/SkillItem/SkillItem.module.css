@@ -3,6 +3,10 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08),
     0px 1px 2px rgba(0, 0, 0, 0.12);
 }
+.SkillsContainer_dark {
+  composes: SkillsContainer;
+  background: #181c27;
+}
 
 .Wrapper {
   padding: 12px 13px 13px 8px;
@@ -16,6 +20,10 @@
   font-size: 14px;
   line-height: 17px;
   color: #181c27;
+}
+.SkillItem__name_dark {
+  composes: SkillItem__name;
+  color: #ffffff;
 }
 
 .SkillItem_buttons {
@@ -43,30 +51,52 @@
 }
 
 .SkillItem_edit {
+  composes: SkillItem_button;
   margin-right: 24px;
-  background-image: url("/icons/employment_edit_icon.svg");
+  background-image: url("/icons/edit_icon.svg");
   background-size: contain;
+}
+.SkillItem_edit_dark {
+  composes: SkillItem_edit;
+  background-image: url("/icons/edit-dark.svg");
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .SkillItem_delete {
+  composes: SkillItem_button;
   margin-right: 24px;
-  background-image: url("/icons/employment_delete_icon.svg");
+  background-image: url("/icons/delete_icon.svg");
   background-size: contain;
+}
+.SkillItem_delete_dark {
+  composes: SkillItem_delete;
+  background-image: url("/icons/delete_dark.svg");
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .SkillItem_sort {
+  composes: SkillItem_button;
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 95%;
 }
+.SkillItem_sort_dark {
+  composes: SkillItem_sort;
+  background-image: url("/icons/toggle_dark.svg");
+}
 
 .SkillItem_sortDown {
+  composes: SkillItem_button;
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 15%;
   transform: rotate(180deg);
+}
+.SkillItem_sortDown_dark {
+  composes: SkillItem_sortDown;
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .SkillsForm {
@@ -86,6 +116,10 @@
   padding: 16px;
   margin-bottom: 16px;
   background: rgba(24, 28, 39, 0.1);
+}
+.SkillsNameContainer_dark {
+  composes: SkillsNameContainer;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .Skill__name {
