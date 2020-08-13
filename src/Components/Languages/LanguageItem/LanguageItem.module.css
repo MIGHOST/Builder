@@ -20,7 +20,10 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08),
     0px 1px 2px rgba(0, 0, 0, 0.12);
 }
-
+.wrapper_dark {
+  composes: wrapper;
+  background: #181c27;
+}
 .control {
   outline: none;
   border: none;
@@ -37,6 +40,10 @@
   align-items: center;
   letter-spacing: 0.04em;
   color: #181c27;
+}
+.header_dark {
+  composes: header;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .buttonSpace {
@@ -68,29 +75,46 @@
 
 .editBtn {
   margin-right: 24px;
-  background-image: url("/icons/employment_edit_icon.svg");
+  background-image: url("/icons/edit_icon.svg");
   background-size: contain;
+}
+.editBtn_dark {
+  composes: editBtn;
+  background-image: url("/icons/edit-dark.svg");
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .deleteBtn {
   margin-right: 24px;
-  background-image: url("/icons/employment_delete_icon.svg");
+  background-image: url("/icons/delete_icon.svg");
   background-size: contain;
+}
+.deleteBtn_dark {
+  composes: deleteBtn;
+  background-image: url("/icons/delete_dark.svg");
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .arrowBtn {
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 95%;
+}
+.arrowBtn_dark {
+  composes: arrowBtn;
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .arrowBtnDown {
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
-
   transform: rotate(180deg);
+}
+.arrowBtnDown_dark {
+  composes: arrowBtnDown;
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .form {
@@ -102,6 +126,10 @@
   justify-content: space-around;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08),
     0px 1px 2px rgba(0, 0, 0, 0.12);
+}
+.form_dark {
+  composes: form;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .select,
@@ -151,9 +179,17 @@
   margin-left: 5px;
   margin-right: 5px;
 }
+.languageName_dark {
+  composes: languageName;
+  color: #ffffff;
+}
 
 .languageLevel {
   margin-left: 5px;
   margin-right: 5px;
   color: rgba(24, 28, 39, 0.6);
+}
+.languageLevel_dark {
+  composes: languageLevel;
+  color: rgba(255, 255, 255, 0.6);
 }

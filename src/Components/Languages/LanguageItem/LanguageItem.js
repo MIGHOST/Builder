@@ -6,19 +6,20 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
   deleteLanguage,
-  updateLanguage,
+  updateLanguage
 } from "../../../redux/actions/languages";
 
-const LanguageItem = (props) => {
+const LanguageItem = props => {
   const { open, toggle, language, index, level } = props;
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme);
   const deletedNewLanguage = () => {
     dispatch(deleteLanguage(index));
   };
-  const editLanguage = (e) => {
+  const editLanguage = e => {
     dispatch(updateLanguage(index, { language: e.target.value, level: level }));
   };
-  const editLevel = (e) => {
+  const editLevel = e => {
     if (!e) {
       return dispatch(updateLanguage(index, { language: language, level: "" }));
     }
@@ -31,32 +32,63 @@ const LanguageItem = (props) => {
     { value: "B1", label: "B1" },
     { value: "A1", label: "A1" },
     { value: "A2", label: "A2" },
-    { value: "Native", label: "Native speaker" },
+    { value: "Native", label: "Native speaker" }
   ];
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.header}>
-          <span className={styles.languageName}>{language}</span> {level && "|"}
-          <span className={styles.languageLevel}>{level}</span>
+      <div className={theme === "dark" ? styles.wrapper_dark : styles.wrapper}>
+        <div className={theme === "dark" ? styles.header_dark : styles.header}>
+          <span
+            className={
+              theme === "dark" ? styles.languageName_dark : styles.languageName
+            }
+          >
+            {language}
+          </span>
+          {level && "|"}
+          <span
+            className={
+              theme === "dark"
+                ? styles.languageLevel_dark
+                : styles.languageLevel
+            }
+          >
+            {level}
+          </span>
         </div>
         <div className={styles.buttonSpace}>
-          <div className={styles.editBtn} onClick={toggle}>
+          <div
+            className={theme === "dark" ? styles.editBtn_dark : styles.editBtn}
+            onClick={toggle}
+          >
             Edit
           </div>
-          <div className={styles.deleteBtn} onClick={deletedNewLanguage}>
+          <div
+            className={
+              theme === "dark" ? styles.deleteBtn_dark : styles.deleteBtn
+            }
+            onClick={deletedNewLanguage}
+          >
             Delete
           </div>
           <div
-            className={`${open ? styles.arrowBtn : styles.arrowBtnDown}`}
+            className={
+              theme === "dark"
+                ? open
+                  ? styles.arrowBtn_dark
+                  : styles.arrowBtnDown_dark
+                : open
+                ? styles.arrowBtn
+                : styles.arrowBtnDown
+            }
             onClick={toggle}
             value=""
           ></div>
         </div>
       </div>
       {open && (
-        <form className={styles.form}>
+        <form className={theme === "dark" ? styles.form_dark : styles.form}>
           <input
             className={styles.input}
             type="text"

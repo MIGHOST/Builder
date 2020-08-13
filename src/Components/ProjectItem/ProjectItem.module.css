@@ -53,51 +53,51 @@
 
 .header__btn_pen {
   margin-right: 24px;
-  background-image: url("/icons/employment_edit_icon.svg");
+  background-image: url("/icons/edit_icon.svg");
   background-size: contain;
 }
 .header__btn_pen_Dark {
   composes: header__btn;
   composes: header__btn_pen;
   color: rgba(255, 255, 255, 0.6);
-  background-image: url("./icons/pen-dark.svg");
+  background-image: url("/icons/edit-dark.svg");
 }
 
 .header__btn_close {
   composes: header__btn;
   margin-right: 24px;
-  background-image: url("/icons/employment_delete_icon.svg");
+  background-image: url("/icons/delete_icon.svg");
   background-size: contain;
 }
 
 .header__btn_close_Dark {
   composes: header__btn_close;
   color: rgba(255, 255, 255, 0.6);
-  background-image: url("./icons/delete-dark.svg");
+  background-image: url("/icons/delete_dark.svg");
 }
 .header__btn_hide_up {
   composes: header__btn;
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 95%;
 }
 .header__btn_hide_up_Dark {
   composes: header__btn_hide_up;
-  background-image: url("./icons/up-down.svg");
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .header__btn_hide_down {
   composes: header__btn;
   width: 0;
-  background-image: url("/icons/employment_toggle_icon.svg");
+  background-image: url("/icons/toggle_icon.svg");
   background-size: 60%;
   background-position: 15%;
   transform: rotate(180deg);
 }
 .header__btn_hide_down_Dark {
   composes: header__btn_hide_down;
-  background-image: url("./icons/up-down.svg");
+  background-image: url("/icons/toggle_dark.svg");
 }
 
 .header__form {
