@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./PreviewT2.module.css";
 
 const Skills = ({ skill }) => {
   return (

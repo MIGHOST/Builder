@@ -6,7 +6,7 @@ import {
   deletePosition,
   changePositionData,
   changePositionStartDate,
-  changePositionEndDate
+  changePositionEndDate,
 } from "../../redux/actions/employmentHistory";
 import withToggle from "../../hoc/withToggle";
 import styles from "./EmploymentHistoryItem.module.css";
@@ -16,10 +16,10 @@ const EmploymentHistoryItem = ({
   emHistory: { jobTitle, employer, start, end, city, description },
   index,
   open,
-  toggle
+  toggle,
 }) => {
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.theme);
+  const theme = useSelector((state) => state.theme);
 
   const deleteEmployment = () => {
     dispatch(deletePosition(index));
@@ -61,7 +61,7 @@ const EmploymentHistoryItem = ({
               className={
                 theme === "dark"
                   ? ` ${styles.EmploymentHistoryItem_Editor_Btn_Dark} ${styles.EmploymentHistoryItem_Editor_Delete_Btn} ${styles.EmploymentHistoryItem_Editor_Delete_Btn_Dark}`
-                  : `${styles.EmploymentHistoryItem_Editor_Btn} ${styles.EmploymentHistoryItem_Editor_Edit_Btn}`
+                  : `${styles.EmploymentHistoryItem_Editor_Btn} ${styles.EmploymentHistoryItem_Editor_Delete_Btn}`
               }
               onClick={deleteEmployment}
             >
@@ -137,7 +137,7 @@ const EmploymentHistoryItem = ({
             placeholder="Job Title"
             name="jobTitle"
             value={jobTitle}
-            onChange={e => dispatch(changePositionData(e, index))}
+            onChange={(e) => dispatch(changePositionData(e, index))}
             className={`${styles.EmploymentHistoryItem_Form_Input} ${styles.EmploymentHistoryItem_Form_Input_Width} ${styles.mr_16}`}
           />
           <input
@@ -145,22 +145,24 @@ const EmploymentHistoryItem = ({
             placeholder="Employer"
             name="employer"
             value={employer}
-            onChange={e => dispatch(changePositionData(e, index))}
+            onChange={(e) => dispatch(changePositionData(e, index))}
             className={`${styles.EmploymentHistoryItem_Form_Input} ${styles.EmploymentHistoryItem_Form_Input_Width} ${styles.mb_16}`}
           />
           <div
             className={`${styles.EmploymentHistoryItem_Calendar_Container} ${styles.mr_16}`}
           >
             <DatePicker
-              selected={moment(start)._d}
-              onChange={date => dispatch(changePositionStartDate(date, index))}
+              selected={start}
+              onChange={(date) =>
+                dispatch(changePositionStartDate(date, index))
+              }
               dateFormat="MM/yyyy"
               showMonthYearPicker
               className={`${styles.EmploymentHistoryItem_Form_Input} ${styles.EmploymentHistoryItem_Form_Input_Date} ${styles.mr_16} ${styles.mb_16}`}
             />
             <DatePicker
-              selected={moment(end)._d}
-              onChange={date => dispatch(changePositionEndDate(date, index))}
+              selected={end}
+              onChange={(date) => dispatch(changePositionEndDate(date, index))}
               dateFormat="MM/yyyy"
               showMonthYearPicker
               className={`${styles.EmploymentHistoryItem_Form_Input} ${styles.EmploymentHistoryItem_Form_Input_Date} ${styles.mb_16}`}
@@ -172,7 +174,7 @@ const EmploymentHistoryItem = ({
             placeholder="City"
             name="city"
             value={city}
-            onChange={e => dispatch(changePositionData(e, index))}
+            onChange={(e) => dispatch(changePositionData(e, index))}
             className={`${styles.EmploymentHistoryItem_Form_Input} ${styles.EmploymentHistoryItem_Form_Input_Width}`}
           />
           <textarea
@@ -181,7 +183,7 @@ const EmploymentHistoryItem = ({
             cols="30"
             rows="10"
             placeholder="Description"
-            onChange={e => dispatch(changePositionData(e, index))}
+            onChange={(e) => dispatch(changePositionData(e, index))}
             className={`${styles.EmploymentHistoryItem_Form_Input} ${styles.EmploymentHistoryItem_Form_Input_Area}`}
           ></textarea>
         </form>

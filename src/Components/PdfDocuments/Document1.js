@@ -64,8 +64,8 @@ const Document1 = ({ resume }) => {
                     <Text style={styles.infoTitle}>Skills</Text>
                     <View style={styles.border}></View>
                     <View>
-                      {skills.map((el) => (
-                        <Text style={styles.skillInfo} key={el.skill}>
+                      {skills.map((el, i) => (
+                        <Text style={styles.skillInfo} key={el.skill + i}>
                           {el.skill}
                         </Text>
                       ))}
@@ -90,8 +90,8 @@ const Document1 = ({ resume }) => {
                     <View style={styles.border}></View>
                     <View style={styles.historyBox}>
                       <View>
-                        {employmentHistory.map((el) => (
-                          <View key={el.employer}>
+                        {employmentHistory.map((el, i) => (
+                          <View key={el.employer + i}>
                             <View style={styles.companyBox}>
                               <View>
                                 <Text style={styles.infoSubTitle}>
@@ -126,8 +126,8 @@ const Document1 = ({ resume }) => {
                     <Text style={styles.infoTitle}>Education</Text>
                     <View style={styles.border}></View>
                     <View>
-                      {educations.map((el) => (
-                        <View key={el.school}>
+                      {educations.map((el, i) => (
+                        <View key={el.school + i}>
                           <View style={styles.companyBox}>
                             <Text style={styles.infoSubTitle}>{el.school}</Text>
                             <Text style={styles.dataInfoEdu}>
@@ -149,8 +149,8 @@ const Document1 = ({ resume }) => {
                     <Text style={styles.infoTitle}>projects</Text>
                     <View style={styles.border}></View>
                     <View>
-                      {projects.map((el) => (
-                        <View key={el.projectTitle}>
+                      {projects.map((el, i) => (
+                        <View key={el.projectTitle + i}>
                           <View>
                             <Text style={styles.infoSubTitle}>
                               {el.projectTitle}, {el.company}
@@ -168,8 +168,8 @@ const Document1 = ({ resume }) => {
                     <Text style={styles.infoTitle}>languages</Text>
                     <View style={styles.border}></View>
                     <View>
-                      {languages.map((el) => (
-                        <View key={el.language}>
+                      {languages.map((el, i) => (
+                        <View key={el.language + i}>
                           <View>
                             <Text style={styles.infoSubTitle}>
                               {el.language}

@@ -6,26 +6,34 @@ import { paths } from "../../constants";
 import { useSelector, useDispatch } from "react-redux";
 import {
   saveResumeToDatabase,
-  updateResumeFromDatabase
+  // updateResumeFromDatabase,
 } from "../../redux/operations/resumeCollection";
 import { useHistory, useLocation, Link } from "react-router-dom";
 import queryString from "query-string";
-import { UPDATE_RESUME } from "../../constants";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Document1 from "../PdfDocuments/Document1";
 
-const getStringFromLocation = location => queryString.parse(location.search).id;
-
+const getStringFromLocation = (location) =>
+  queryString.parse(location.search).id;
 const Preview = () => {
-  const theme = useSelector(state => state.theme);
-  const type = useSelector(state => state.resume.basicInfo.type);
-  const user = useSelector(state => state.user);
-  const resume = useSelector(state => state.resume);
-  const resumeCollections = useSelector(state => state.resumeCollection);
+  const theme = useSelector((state) => state.theme);
+  const type = useSelector((state) => state.resume.basicInfo.type);
+  const user = useSelector((state) => state.user);
+  const resume = useSelector((state) => state.resume);
+  // const resumeCollections = useSelector((state) => state.resumeCollection);
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
   const id = getStringFromLocation(location);
+  let _isMounted = false;
+
+  useEffect(() => {
+    _isMounted = true;
+
+    return () => {
+      _isMounted = false;
+    };
+  });
 
   const saveResume = () => {
     const collectionName = user.uid;
@@ -45,7 +53,7 @@ const Preview = () => {
         >
           Preview
         </h2>
-        <div>
+        {_isMounted && (
           <PDFDownloadLink
             document={<Document1 resume={resume} />}
             fileName="resume.pdf"
@@ -59,7 +67,7 @@ const Preview = () => {
               Download
             </button>
           </PDFDownloadLink>
-        </div>
+        )}
       </div>
       {type === 1 ? <PreviewT1 /> : <PreviewT2 />}
 

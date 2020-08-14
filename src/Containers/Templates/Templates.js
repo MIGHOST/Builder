@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect } from "react";
+import React from "react";
 import styles from "./Templates.module.css";
 import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changeType } from "../../redux/actions/basicInfo";
 import Template_1 from "../../Components/ResumeTemplate1/ResumeTemplate1";
 import Template_2 from "../../Components/ResumeTemplate2/ResumeTemplate2";
-import { set } from "date-fns";
-import { darkTheme, lightTheme } from "../../redux/actions/theme";
+// import { set } from "date-fns";
+// import { darkTheme, lightTheme } from "../../redux/actions/theme";
 
 const Templates = () => {
   const theme = useSelector(state => state.theme);

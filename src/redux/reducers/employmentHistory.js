@@ -7,10 +7,8 @@ import {
   CLEAR_RESUME,
   UPDATE_RESUME,
 } from "../../constants";
-import moment from "moment";
 
-const initialState = [
-];
+const initialState = [];
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {

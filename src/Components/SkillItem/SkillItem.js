@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./SkillItem.module.css";
 import withToggle from "../../hoc/withToggle";
 import { useSelector, useDispatch } from "react-redux";

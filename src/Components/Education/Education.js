@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Education.module.css";
 import EducationItem from "./EducationItem";
 import { addEducation, deleteEducation } from "../../redux/actions/educations";
+import moment from "moment";
 import { connect, useDispatch, useSelector } from "react-redux";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -16,13 +17,13 @@ const Education = ({ educations }) => {
       addEducation({
         school: "",
         degree: "",
-        start: Date.now(),
-        end: Date.now()
+        start: moment()._d,
+        end: moment()._d,
       })
     );
   };
 
-  const handleRemoveClick = index => {
+  const handleRemoveClick = (index) => {
     dispatch(deleteEducation(index));
   };
 
@@ -49,8 +50,8 @@ const Education = ({ educations }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  educations: state.resume.educations
+const mapStateToProps = (state) => ({
+  educations: state.resume.educations,
 });
 
 export default connect(mapStateToProps)(Education);

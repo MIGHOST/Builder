@@ -3,8 +3,9 @@ import style from "./Education.module.css";
 import withToggle from "../../hoc/withToggle";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { setEducation } from "../../redux/actions/educations";
+
 
 const EducationItem = ({
   school,
@@ -14,7 +15,7 @@ const EducationItem = ({
   end,
   open,
   toggle,
-  handleRemoveClick
+  handleRemoveClick,
 }) => {
   const theme = useSelector(state => state.theme);
   const remove = index => {
@@ -23,46 +24,46 @@ const EducationItem = ({
 
   const dispatch = useDispatch();
 
-  const handleSchool = e => {
+  const handleSchool = (e) => {
     dispatch(
       setEducation(index, {
         school: e.target.value,
         degree: degree,
         start: start,
-        end: end
+        end: end,
       })
     );
   };
 
-  const handleDegree = e => {
+  const handleDegree = (e) => {
     dispatch(
       setEducation(index, {
         school: school,
         degree: e.target.value,
         start: start,
-        end: end
+        end: end,
       })
     );
   };
 
-  const handleStart = data => {
+  const handleStart = (data) => {
     dispatch(
       setEducation(index, {
         school: school,
         degree: degree,
         start: data,
-        end: end
+        end: end,
       })
     );
   };
 
-  const handleEnd = data => {
+  const handleEnd = (data) => {
     dispatch(
       setEducation(index, {
         school: school,
         degree: degree,
         start: start,
-        end: data
+        end: data,
       })
     );
   };
@@ -127,7 +128,7 @@ const EducationItem = ({
               theme === "dark" ? style.degreeDate_dark : style.degreeDate
             }
           >
-            {start ? `${moment(start).format("l")}` : "mm/yy"}
+                    {start ? `${moment(start).format("MM/YYYY")}` : "mm/yy"}
           </p>
           <p
             className={
@@ -141,7 +142,7 @@ const EducationItem = ({
               theme === "dark" ? style.degreeDate_dark : style.degreeDate
             }
           >
-            {end ? `${moment(end).format("l")}` : "mm/yy"}
+            {end ? `${moment(end).format("MM/YYYY")}` : "mm/yy"}
           </p>
         </div>
       </div>
@@ -153,36 +154,33 @@ const EducationItem = ({
             placeholder="School"
             name="school"
             className={style.inputSpace}
-            // value={school}
+            value={school}
             onChange={handleSchool}
-            // onChange={handleChange}
           />
           <input
             type="text"
             placeholder="Degree"
             name="degree"
             className={style.inputSpace}
-            // value={degree}
+            value={degree}
             onChange={handleDegree}
           />
 
           <div className={style.fillInDate}>
-            {/* <input type="date" placeholder="Start date" name="startDate" /> */}
             <DatePicker
-              selected={moment(start)._d}
+              selected={start}
               onChange={handleStart}
               className={style.inputDate}
               dateFormat="MM/yyyy"
               showMonthYearPicker
             />
             <DatePicker
-              selected={moment(end)._d}
+              selected={end}
               onChange={handleEnd}
               className={style.inputDate}
               dateFormat="MM/yyyy"
               showMonthYearPicker
             />
-            {/* <input type="date" placeholder="End date" name="endDate" className={style.inputDate}/> */}
           </div>
         </div>
       )}
