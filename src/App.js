@@ -23,7 +23,7 @@ function App() {
         dispatch(logInUser(user));
       }
     }
-  }, []);
+  }, [dispatch]);
 
   if (isAuth) {
     return (

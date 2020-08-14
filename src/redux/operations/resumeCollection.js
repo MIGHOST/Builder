@@ -36,6 +36,11 @@ export const getResumeFromDatabase = (collectionName) => async (dispatch) => {
     const result = await db.collection(collectionName).get();
     const formatResult = result.docs.map((doc) => ({
       ...doc.data(),
+      employmentHistory: [...doc.data().employmentHistory].map((el) => ({
+        ...el,
+        end: el.end.toDate(),
+        start: el.start.toDate(),
+      })),
       id: doc.id,
     }));
 

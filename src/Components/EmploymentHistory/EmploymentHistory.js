@@ -8,19 +8,19 @@ import AddButton from "../AddButton/AddButton";
 
 const EmploymentHistory = () => {
   const employmentHistory = useSelector(
-    state => state.resume.employmentHistory
+    (state) => state.resume.employmentHistory
   );
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.theme);
+  const theme = useSelector((state) => state.theme);
 
   const addNewEmplyment = () => {
     const newEmployment = {
       jobTitle: "",
       employer: "",
-      start: moment(),
-      end: moment(),
+      start: moment().format(),
+      end: moment().format(),
       city: "",
-      description: ""
+      description: "",
     };
 
     dispatch(addPosition(newEmployment));
