@@ -159,7 +159,7 @@ const ResumeTemplate1 = () => {
               Employment history
             </h2>
             {finalEmploymentHistory.map((el) => (
-              <div key={employmentHistory}>
+              <div key={`${el.jobTitle}, ${el.employer}, ${el.city}`}>
                 <div className={`${classes.employment_history_title}`}>
                   <p className={`${classes.text_primary}`}>
                     {`${el.jobTitle}, ${el.employer}`}

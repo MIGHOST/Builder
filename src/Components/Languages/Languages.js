@@ -8,12 +8,15 @@ import AddButton from "../AddButton/AddButton";
 const Languages = () => {
   const languages = useSelector(state => state.resume.languages);
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme);
   const addNewLanguage = () => {
     dispatch(addLanguage());
   };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>Languages</div>
+      <div className={theme === "dark" ? styles.title_dark : styles.title}>
+        Languages
+      </div>
       {languages.map((languageItem, index) => (
         <LanguageItem
           language={languageItem.language}

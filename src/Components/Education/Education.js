@@ -2,13 +2,15 @@ import React from "react";
 import style from "./Education.module.css";
 import EducationItem from "./EducationItem";
 import { addEducation, deleteEducation } from "../../redux/actions/educations";
-import { connect, useDispatch } from "react-redux";
 import moment from "moment";
+import { connect, useDispatch, useSelector } from "react-redux";
+
 import "react-datepicker/dist/react-datepicker.css";
 import AddButton from "../AddButton/AddButton";
 
 const Education = ({ educations }) => {
   const dispatch = useDispatch();
+  const theme = useSelector(state => state.theme);
 
   const handleAddClick = () => {
     dispatch(
@@ -27,7 +29,9 @@ const Education = ({ educations }) => {
 
   return (
     <div className={style.wraper}>
-      <h1 className={style.title}>Education</h1>
+      <h1 className={theme === "dark" ? style.title_dark : style.title}>
+        Education
+      </h1>
       <div className={style.itemsWrapper}>
         {educations.map((el, index) => (
           <EducationItem

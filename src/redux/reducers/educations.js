@@ -3,7 +3,6 @@ import {
   SET_EDUCATION,
   DELETE_EDUCATION,
 } from "../actions/educations";
-import moment from "moment";
 import { CLEAR_RESUME, UPDATE_RESUME } from "../../constants";
 
 const initialState = [

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Header.module.css";
 import { paths } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../redux/actions/user";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, Link, useHistory, useLocation } from "react-router-dom";
 import { auth } from "../../configFirebase";
 import storage from "../../helpers/storage";
 
@@ -12,7 +12,7 @@ const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
-  const isUserAuth = useSelector((state) => state.user);
+  const isUserAuth = useSelector(state => state.user);
   const logOut = () => {
     dispatch(logOutUser());
     auth.signOut();
@@ -33,7 +33,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}></div>
+      <Link to={paths.dashboard}>
+        <div className={styles.logo}></div>
+      </Link>
       {!!Object.keys(isUserAuth).length && (
         <nav
           className={

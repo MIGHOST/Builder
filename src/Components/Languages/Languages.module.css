@@ -16,3 +16,7 @@
   letter-spacing: 0.04em;
   color: #181c27;
 }
+.title_dark {
+  composes: title;
+  color: #ffffff;
+}
