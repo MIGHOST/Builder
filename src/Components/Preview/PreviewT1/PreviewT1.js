@@ -66,8 +66,8 @@ const PreviewT1 = () => {
             <div className={styles.sidebarComponent}>
               <h3 className={styles.componentTitle}>Skills</h3>
               <ul>
-                {skills.map((skill) => (
-                  <li key={skill.skill}>
+                {skills.map((skill, i) => (
+                  <li key={skill.skill + i}>
                     <p className={styles.listItemTitle}>{skill.skill}</p>
                   </li>
                 ))}
@@ -86,8 +86,8 @@ const PreviewT1 = () => {
             <div className={styles.cvInfoComponent}>
               <h3 className={styles.componentTitle}> employment history</h3>
               <ul>
-                {employmentHistory.map((job) => (
-                  <li key={`${job.employer}-${job.jobTitle}`}>
+                {employmentHistory.map((job, i) => (
+                  <li key={`${job.employer}-${job.jobTitle}-${i}`}>
                     <h4 className={styles.listItemTitle}>
                       {`${job.jobTitle}, ${job.employer}`}
                     </h4>
@@ -108,8 +108,8 @@ const PreviewT1 = () => {
             <div className={styles.cvInfoComponent}>
               <h3 className={styles.componentTitle}>projects</h3>
               <ul>
-                {projects.map((proj) => (
-                  <li key={`${proj.projectTitle}-${proj.description}`}>
+                {projects.map((proj, i) => (
+                  <li key={`${proj.projectTitle}-${proj.description}-${i}`}>
                     <h4 className={styles.listItemTitle}>
                       {`${proj.company}, ${proj.projectTitle}`}
                     </h4>
@@ -123,8 +123,8 @@ const PreviewT1 = () => {
             <div className={styles.cvInfoComponent}>
               <h3 className={styles.componentTitle}>education</h3>
               <ul>
-                {educations.map((edu) => (
-                  <li key={edu.school}>
+                {educations.map((edu, i) => (
+                  <li key={edu.school + i}>
                     <h4 className={styles.listItemTitle}>
                       {`${edu.school}, ${edu.degree}`}
                     </h4>
@@ -142,8 +142,8 @@ const PreviewT1 = () => {
             <div className={styles.cvInfoComponent}>
               <h3 className={styles.componentTitle}>languages</h3>
               <ul>
-                {languages.map((lang) => (
-                  <li key={lang.language}>
+                {languages.map((lang, i) => (
+                  <li key={lang.language + i}>
                     <h4 className={styles.listItemTitle}>
                       {`${lang.language} - ${lang.level}`}
                     </h4>

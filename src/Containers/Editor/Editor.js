@@ -4,7 +4,7 @@ import styles from "./Editor.module.css";
 import EditorConstructor from "../EditorConstructor/EditorConstructor";
 import Preview from "../../Components/Preview/Preview";
 const Editor = () => {
-  const theme = useSelector(state => state.theme);
+  const theme = useSelector((state) => state.theme);
   return (
     <div
       className={

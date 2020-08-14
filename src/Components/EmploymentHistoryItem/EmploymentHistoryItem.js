@@ -61,7 +61,7 @@ const EmploymentHistoryItem = ({
               className={
                 theme === "dark"
                   ? ` ${styles.EmploymentHistoryItem_Editor_Btn_Dark} ${styles.EmploymentHistoryItem_Editor_Delete_Btn} ${styles.EmploymentHistoryItem_Editor_Delete_Btn_Dark}`
-                  : `${styles.EmploymentHistoryItem_Editor_Btn} ${styles.EmploymentHistoryItem_Editor_Edit_Btn}`
+                  : `${styles.EmploymentHistoryItem_Editor_Btn} ${styles.EmploymentHistoryItem_Editor_Delete_Btn}`
               }
               onClick={deleteEmployment}
             >

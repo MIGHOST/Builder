@@ -15,8 +15,8 @@ const Education = ({ educations }) => {
       addEducation({
         school: "",
         degree: "",
-        start: moment().format(),
-        end: moment().format(),
+        start: moment()._d,
+        end: moment()._d,
       })
     );
   };

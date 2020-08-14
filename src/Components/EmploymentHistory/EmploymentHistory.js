@@ -17,8 +17,8 @@ const EmploymentHistory = () => {
     const newEmployment = {
       jobTitle: "",
       employer: "",
-      start: moment().format(),
-      end: moment().format(),
+      start: moment()._d,
+      end: moment()._d,
       city: "",
       description: "",
     };
