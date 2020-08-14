@@ -3,7 +3,7 @@ import style from "./Education.module.css";
 import withToggle from "../../hoc/withToggle";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setEducation } from "../../redux/actions/educations";
 
 const EducationItem = ({
@@ -14,54 +14,54 @@ const EducationItem = ({
   end,
   open,
   toggle,
-  handleRemoveClick
+  handleRemoveClick,
 }) => {
-  const remove = index => {
+  const remove = (index) => {
     handleRemoveClick(index);
   };
 
   const dispatch = useDispatch();
 
-  const handleSchool = e => {
+  const handleSchool = (e) => {
     dispatch(
       setEducation(index, {
         school: e.target.value,
         degree: degree,
         start: start,
-        end: end
+        end: end,
       })
     );
   };
 
-  const handleDegree = e => {
+  const handleDegree = (e) => {
     dispatch(
       setEducation(index, {
         school: school,
         degree: e.target.value,
         start: start,
-        end: end
+        end: end,
       })
     );
   };
 
-  const handleStart = data => {
+  const handleStart = (data) => {
     dispatch(
       setEducation(index, {
         school: school,
         degree: degree,
         start: data,
-        end: end
+        end: end,
       })
     );
   };
 
-  const handleEnd = data => {
+  const handleEnd = (data) => {
     dispatch(
       setEducation(index, {
         school: school,
         degree: degree,
         start: start,
-        end: data
+        end: data,
       })
     );
   };
@@ -74,11 +74,22 @@ const EducationItem = ({
             !!degree ? degree : "degree"
           }`}</h2>
           <div className={style.degreeEdits}>
-            <button onClick={toggle} className={`${style.degreeEditsHover} ${style.degreeEditIcon}`}>Edit</button>
-            <button onClick={remove} className={`${style.degreeEditsHover} ${style.degreeDeleteIcon}`}>Delete</button>
             <button
-              className={`${style.degreeEditsHover} ${!!open ? style.degreeTreeangle : style.degreeTreeangleRotate}`
-              }
+              onClick={toggle}
+              className={`${style.degreeEditsHover} ${style.degreeEditIcon}`}
+            >
+              Edit
+            </button>
+            <button
+              onClick={remove}
+              className={`${style.degreeEditsHover} ${style.degreeDeleteIcon}`}
+            >
+              Delete
+            </button>
+            <button
+              className={`${style.degreeEditsHover} ${
+                !!open ? style.degreeTreeangle : style.degreeTreeangleRotate
+              }`}
               onClick={toggle}
             ></button>
           </div>
@@ -87,11 +98,11 @@ const EducationItem = ({
         <div className={style.degreeDates}>
           <p className={style.degreeText}>Start</p>
           <p className={style.Date}>
-            {start ? `${moment(start).format("l")}` : "mm/yy"}
+            {start ? `${moment(start).format("MM/YYYY")}` : "mm/yy"}
           </p>
           <p className={style.degreeText}>End</p>
           <p className={style.Date}>
-            {end ? `${moment(end).format("l")}` : "mm/yy"}
+            {end ? `${moment(end).format("MM/YYYY")}` : "mm/yy"}
           </p>
         </div>
       </div>
@@ -103,36 +114,33 @@ const EducationItem = ({
             placeholder="School"
             name="school"
             className={style.inputSpace}
-            // value={school}
+            value={school}
             onChange={handleSchool}
-            // onChange={handleChange}
           />
           <input
             type="text"
             placeholder="Degree"
             name="degree"
             className={style.inputSpace}
-            // value={degree}
+            value={degree}
             onChange={handleDegree}
           />
 
           <div className={style.fillInDate}>
-            {/* <input type="date" placeholder="Start date" name="startDate" /> */}
             <DatePicker
-              selected={moment(start)._d}
+              selected={start}
               onChange={handleStart}
               className={style.inputDate}
               dateFormat="MM/yyyy"
               showMonthYearPicker
             />
             <DatePicker
-              selected={moment(end)._d}
+              selected={end}
               onChange={handleEnd}
               className={style.inputDate}
               dateFormat="MM/yyyy"
               showMonthYearPicker
             />
-            {/* <input type="date" placeholder="End date" name="endDate" className={style.inputDate}/> */}
           </div>
         </div>
       )}

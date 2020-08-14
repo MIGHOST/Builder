@@ -41,6 +41,11 @@ export const getResumeFromDatabase = (collectionName) => async (dispatch) => {
         end: el.end.toDate(),
         start: el.start.toDate(),
       })),
+      educations: [...doc.data().educations].map((el) => ({
+        ...el,
+        end: el.end.toDate(),
+        start: el.start.toDate(),
+      })),
       id: doc.id,
     }));
 

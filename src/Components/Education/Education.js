@@ -3,7 +3,7 @@ import style from "./Education.module.css";
 import EducationItem from "./EducationItem";
 import { addEducation, deleteEducation } from "../../redux/actions/educations";
 import { connect, useDispatch } from "react-redux";
-
+import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import AddButton from "../AddButton/AddButton";
 
@@ -15,13 +15,13 @@ const Education = ({ educations }) => {
       addEducation({
         school: "",
         degree: "",
-        start: Date.now(),
-        end: Date.now()
+        start: moment().format(),
+        end: moment().format(),
       })
     );
   };
 
-  const handleRemoveClick = index => {
+  const handleRemoveClick = (index) => {
     dispatch(deleteEducation(index));
   };
 
@@ -46,8 +46,8 @@ const Education = ({ educations }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  educations: state.resume.educations
+const mapStateToProps = (state) => ({
+  educations: state.resume.educations,
 });
 
 export default connect(mapStateToProps)(Education);
