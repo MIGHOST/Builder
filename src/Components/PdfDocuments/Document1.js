@@ -190,14 +190,11 @@ const Document1 = ({ resume }) => {
   );
 };
 
-Font.register(
-  // "https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf",
-  {
-    family: "Oswald",
-    format: "truetype",
-    src: "https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf",
-  }
-);
+Font.register({
+  family: "Oswald",
+  format: "truetype",
+  src: font,
+});
 
 const styles = StyleSheet.create({
   body: {

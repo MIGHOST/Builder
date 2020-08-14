@@ -25,33 +25,42 @@ const DashboardItemV2 = (prop) => {
 
     dispatch({ type: UPDATE_RESUME, payload: res });
   };
- 
+
   return (
     <div className={styles.resumeItem}>
       <div className={styles.resumeName}>{prop.basicInfo.title}</div>
       <div className={styles.resume}>
-        <img src="/icons/resv2.png" />
+        <img src="/icons/resv2.png" alt="resume" />
       </div>
       <div className={styles.buttonBlock}>
-      <PDFDownloadLink
+        <PDFDownloadLink
           document={<Document1 resume={prop} />}
           fileName="resume.pdf"
         >
           <button className={styles.button}>
-            <img src="/icons/Dowload.svg" className={styles.buttonSvg} />
+            <img
+              src="/icons/Dowload.svg"
+              className={styles.buttonSvg}
+              alt="download resume"
+            />
             Download
           </button>
         </PDFDownloadLink>
 
-        {/* <button className={styles.button}>
-          <img src="/icons/Dowload.svg" className={styles.buttonSvg} /> Download
-        </button> */}
         <button className={styles.button} onClick={edit}>
-          <img src="/icons/Edit.svg" className={styles.buttonSvg} />
+          <img
+            src="/icons/Edit.svg"
+            className={styles.buttonSvg}
+            alt="edit resume"
+          />
           Edit
         </button>
         <button className={styles.button} onClick={deleteDocument}>
-          <img src="/icons/Delete.svg" className={styles.buttonSvg} />
+          <img
+            src="/icons/Delete.svg"
+            className={styles.buttonSvg}
+            alt="delete resume"
+          />
           Delete
         </button>
       </div>
