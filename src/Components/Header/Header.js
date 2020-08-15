@@ -36,7 +36,7 @@ const Header = () => {
       <Link to={paths.dashboard}>
         <div className={styles.logo}></div>
       </Link>
-      {!!Object.keys(isUserAuth).length && (
+      {Object.keys(isUserAuth).includes("email") && (
         <nav
           className={
             isSwitchOn()

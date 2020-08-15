@@ -29,7 +29,6 @@ const Login = () => {
     };
 
     dispatch(createUserLogin(userData, history));
-
     setForm(formInitialState);
   };
   const { email, password } = form;

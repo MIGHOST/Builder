@@ -11,6 +11,7 @@
 }
 
 .Link {
+  padding-left: 17px;
   display: block;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
@@ -24,6 +25,26 @@
 }
 .LinkDarkTheme {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.LinkNewResumeActive {
+  content: "";
+  margin-left: 35px;
+  width: 12px;
+  height: 15px;
+  background-image: url('/icons/CreateTemplateActive.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.LinkNewResumeNotActive {
+  content: "";
+  margin-left: 35px;
+  width: 12px;
+  height: 15px;
+  background-image: url('/icons/CreateTemplateNotActive.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .ActiveLink {
