@@ -19,7 +19,6 @@ const Templates = (props) => {
   const changeNumber = number => {
     dispatch(changeType(number));
   };
-  console.log(props)
 
   return (
     <div

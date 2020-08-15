@@ -32,6 +32,7 @@ export const createUserLogin = (user, history) => async (dispatch) => {
       email,
       password
     );
+    console.log(registerResult)
 
     const userAuthenticated = {
       email: registerResult.user.email,
