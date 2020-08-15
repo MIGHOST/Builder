@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeType } from "../../redux/actions/basicInfo";
 import Template_1 from "../../Components/ResumeTemplate1/ResumeTemplate1";
 import Template_2 from "../../Components/ResumeTemplate2/ResumeTemplate2";
+import { paths } from "../../constants";
 // import { set } from "date-fns";
 // import { darkTheme, lightTheme } from "../../redux/actions/theme";
 
-const Templates = () => {
+const Templates = ({location}) => {
   const theme = useSelector(state => state.theme);
-
+  const isResumeOne = location.pathname === paths.templates;
   const path = useRouteMatch().path;
   const dispatch = useDispatch();
   const changeNumber = number => {
@@ -24,6 +25,11 @@ const Templates = () => {
       }
     >
       <div className={styles.LinkWrapper}>
+        <NavLink
+          to={paths.editor}
+          className={isResumeOne ? styles.LinkNewResumeActive : styles.LinkNewResumeNotActive}
+          onClick={() => changeNumber(1)}
+        />
         <NavLink
           exact
           to={`${path}`}
@@ -41,6 +47,11 @@ const Templates = () => {
         >
           Resume v.1
         </NavLink>
+        <NavLink
+          to={paths.editor}
+          className={isResumeOne ? styles.LinkNewResumeNotActive : styles.LinkNewResumeActive}
+          onClick={() => changeNumber(2)}
+        />
         <NavLink
           to={`${path}/2`}
           className={
