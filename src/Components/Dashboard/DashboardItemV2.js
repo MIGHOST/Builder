@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { paths, UPDATE_RESUME } from "../../constants";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Document1 from "../PdfDocuments/Document1";
+import Document2 from "../PdfDocuments/Document2";
 
 const DashboardItemV2 = (prop) => {
   const user = useSelector((state) => state.user);
@@ -26,6 +27,13 @@ const DashboardItemV2 = (prop) => {
     dispatch({ type: UPDATE_RESUME, payload: res });
   };
 
+  function typeOfPDF (type) {
+    if(type === 1) {
+      return [<Document1 resume={prop}/>]
+    }
+    return [<Document2 resume={prop}/>]
+  };
+
   return (
     <div className={styles.resumeItem}>
       <div className={styles.resumeName}>{prop.basicInfo.title}</div>
@@ -34,7 +42,7 @@ const DashboardItemV2 = (prop) => {
       </div>
       <div className={styles.buttonBlock}>
         <PDFDownloadLink
-          document={<Document1 resume={prop} />}
+          document={typeOfPDF(prop.basicInfo.type)}
           fileName="resume.pdf"
         >
           <button className={styles.button}>
