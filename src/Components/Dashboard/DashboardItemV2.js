@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteResumeFromDatabase } from "../../redux/operations/resumeCollection";
 import { useHistory } from "react-router-dom";
 import { paths, UPDATE_RESUME } from "../../constants";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { pdf } from '@react-pdf/renderer';
+import { saveAs } from 'file-saver';
 import Document1 from "../PdfDocuments/Document1";
 import Document2 from "../PdfDocuments/Document2";
 
@@ -34,6 +35,11 @@ const DashboardItemV2 = (prop) => {
     return [<Document2 resume={prop}/>]
   };
 
+  const generatePdfDocument = async () => {
+    const blob = await pdf(typeOfPDF(prop.basicInfo.type)).toBlob();
+    saveAs(blob, "resume.pdf");
+};
+
   return (
     <div className={styles.resumeItem}>
       <div className={styles.resumeName}>{prop.basicInfo.title}</div>
@@ -41,20 +47,14 @@ const DashboardItemV2 = (prop) => {
         <img src="/icons/resv2.png" alt="resume" />
       </div>
       <div className={styles.buttonBlock}>
-        <PDFDownloadLink
-          document={typeOfPDF(prop.basicInfo.type)}
-          fileName="resume.pdf"
-        >
-          <button className={styles.button}>
-            <img
-              src="/icons/Dowload.svg"
-              className={styles.buttonSvg}
-              alt="download resume"
-            />
-            Download
-          </button>
-        </PDFDownloadLink>
-
+        <button className={styles.button} onClick={generatePdfDocument}>
+          <img
+            src="/icons/Dowload.svg"
+            className={styles.buttonSvg}
+            alt="download resume"
+          />
+          Download
+        </button>
         <button className={styles.button} onClick={edit}>
           <img
             src="/icons/Edit.svg"
